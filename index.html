@@ -3,205 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nexora Word - Login</title>
+<title>Nexora Word Login</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
 }
 
 body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
-    overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#7c3aed);
+overflow:hidden;
 }
 
-.bg{
-    position:absolute;
-    width:100%;
-    height:100%;
-}
-
-.circle{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(80px);
-    animation:float 8s infinite ease-in-out;
-}
-
-.c1{
-    width:300px;
-    height:300px;
-    background:#3b82f6;
-    top:10%;
-    left:10%;
-}
-
-.c2{
-    width:250px;
-    height:250px;
-    background:#8b5cf6;
-    bottom:10%;
-    right:10%;
-}
-
-@keyframes float{
-    50%{
-        transform:translateY(-30px);
-    }
-}
-
-.login-card{
-    width:420px;
-    padding:40px;
-    border-radius:30px;
-    background:rgba(255,255,255,0.1);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,0.2);
-    box-shadow:0 25px 50px rgba(0,0,0,0.4);
-    text-align:center;
-    color:white;
-    z-index:2;
+.card{
+width:420px;
+padding:40px;
+border-radius:25px;
+background:rgba(255,255,255,.1);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.15);
+box-shadow:0 20px 50px rgba(0,0,0,.4);
+color:white;
 }
 
 .logo{
-    width:90px;
-    height:90px;
-    margin:auto;
-    border-radius:50%;
-    background:linear-gradient(135deg,#60a5fa,#8b5cf6);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:40px;
-    font-weight:bold;
-    margin-bottom:20px;
-    box-shadow:0 0 40px rgba(96,165,250,.8);
+width:90px;
+height:90px;
+margin:auto;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:38px;
+font-weight:700;
+background:linear-gradient(135deg,#60a5fa,#8b5cf6);
+margin-bottom:20px;
 }
 
 h1{
-    font-size:32px;
-    margin-bottom:8px;
+text-align:center;
+margin-bottom:10px;
 }
 
-.subtitle{
-    color:#cbd5e1;
-    margin-bottom:30px;
+p{
+text-align:center;
+opacity:.8;
+margin-bottom:25px;
 }
 
-.google-container{
-    display:flex;
-    justify-content:center;
-    margin-top:20px;
+.input{
+width:100%;
+padding:14px;
+margin-bottom:15px;
+border:none;
+outline:none;
+border-radius:12px;
+background:rgba(255,255,255,.12);
+color:white;
 }
 
-.user-info{
-    margin-top:25px;
-    display:none;
+.input::placeholder{
+color:#ddd;
 }
 
-.user-info img{
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    border:4px solid white;
-    margin-bottom:15px;
+.btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-size:16px;
+font-weight:600;
+background:#3b82f6;
+color:white;
+margin-top:10px;
 }
 
-.user-name{
-    font-size:22px;
-    font-weight:600;
+.btn:hover{
+opacity:.9;
 }
 
-.user-email{
-    color:#cbd5e1;
+.google-btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+margin-top:12px;
+background:white;
+color:black;
+font-weight:600;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+font-size:13px;
+margin-top:10px;
+}
+
+a{
+color:#93c5fd;
+text-decoration:none;
 }
 
 .footer{
-    margin-top:25px;
-    color:#94a3b8;
-    font-size:13px;
+text-align:center;
+margin-top:20px;
+font-size:13px;
+opacity:.8;
 }
 </style>
 </head>
 <body>
 
-<div class="bg">
-    <div class="circle c1"></div>
-    <div class="circle c2"></div>
+<div class="card">
+
+<div class="logo">N</div>
+
+<h1>Nexora Word</h1>
+<p>AI Powered Workspace</p>
+
+<form id="loginForm">
+
+<input
+type="email"
+id="email"
+class="input"
+placeholder="Email Address"
+required>
+
+<input
+type="password"
+id="password"
+class="input"
+placeholder="Password"
+required>
+
+<div class="row">
+<label>
+<input type="checkbox">
+ Remember Me
+</label>
+
+<a href="#">Forgot Password?</a>
 </div>
 
-<div class="login-card">
+<button class="btn" type="submit">
+Login
+</button>
 
-    <div class="logo">N</div>
+<button class="google-btn" type="button" onclick="googleLogin()">
+🔵 Continue with Google
+</button>
 
-    <h1>Nexora Word</h1>
-    <p class="subtitle">AI-Powered Smart Workspace</p>
+</form>
 
-    <div id="g_id_onload"
-         data-client_id="600517619057-sas7435k18ofgpsu8inhbg41i6qfd68d.apps.googleusercontent.com"
-         data-callback="handleCredentialResponse">
-    </div>
-
-    <div class="google-container">
-        <div class="g_id_signin"
-             data-type="standard"
-             data-shape="pill"
-             data-theme="filled_blue"
-             data-text="signin_with"
-             data-size="large">
-        </div>
-    </div>
-
-    <div class="user-info" id="userInfo">
-        <img id="userPic">
-        <div class="user-name" id="userName"></div>
-        <div class="user-email" id="userEmail"></div>
-    </div>
-
-    <div class="footer">
-        Secure Google Authentication
-    </div>
-
+<div class="footer">
+Nexora Word © 2026
 </div>
 
-<script src="https://accounts.google.com/gsi/client" async defer></script>
+</div>
 
 <script>
-function parseJwt(token) {
-    let base64Url = token.split('.')[1];
-    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    let jsonPayload = decodeURIComponent(
-        atob(base64)
-        .split('')
-        .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
-        .join('')
-    );
-    return JSON.parse(jsonPayload);
-}
+document.getElementById("loginForm")
+.addEventListener("submit",function(e){
 
-function handleCredentialResponse(response) {
+e.preventDefault();
 
-    const data = parseJwt(response.credential);
+const email =
+document.getElementById("email").value;
 
-    document.getElementById("userInfo").style.display = "block";
+localStorage.setItem("nexoraUser",email);
 
-    document.getElementById("userPic").src = data.picture;
-    document.getElementById("userName").innerText = data.name;
-    document.getElementById("userEmail").innerText = data.email;
+window.location.href="home.html";
+});
 
-    console.log("User Logged In:", data);
+function googleLogin(){
 
-    // Redirect Example
-    // window.location.href = "dashboard.html";
+// Replace with actual Google OAuth later
+
+localStorage.setItem(
+"nexoraUser",
+"Google User"
+);
+
+window.location.href="home.html";
 }
 </script>
 
