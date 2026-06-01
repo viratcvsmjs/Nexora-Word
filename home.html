@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nexora Word - Home</title>
+<title>Nexora Word</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -16,258 +16,251 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#0f172a;
+background: radial-gradient(circle at top, #1e3a8a, #020617);
 color:white;
+overflow-x:hidden;
 }
 
+/* NAVBAR */
 nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 40px;
-background:#111827;
+padding:18px 50px;
+background:rgba(255,255,255,0.05);
+backdrop-filter: blur(12px);
 position:sticky;
 top:0;
 z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
 .logo{
-font-size:28px;
+font-size:26px;
 font-weight:700;
-color:#60a5fa;
+background:linear-gradient(90deg,#60a5fa,#a78bfa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .menu{
 display:flex;
-gap:20px;
+gap:25px;
 }
 
 .menu a{
-text-decoration:none;
 color:white;
+text-decoration:none;
 font-weight:500;
+position:relative;
+}
+
+.menu a::after{
+content:"";
+position:absolute;
+bottom:-5px;
+left:0;
+width:0%;
+height:2px;
+background:#60a5fa;
 transition:.3s;
 }
 
-.menu a:hover{
-color:#60a5fa;
+.menu a:hover::after{
+width:100%;
 }
 
+/* HERO */
 .hero{
-padding:100px 20px;
 text-align:center;
-background:linear-gradient(135deg,#1e3a8a,#2563eb,#7c3aed);
+padding:120px 20px;
 }
 
 .hero h1{
-font-size:60px;
-margin-bottom:20px;
+font-size:65px;
+background:linear-gradient(90deg,#60a5fa,#c084fc);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .hero p{
-max-width:800px;
-margin:auto;
+margin-top:20px;
 font-size:20px;
+opacity:0.8;
 }
 
 .btn{
+margin-top:30px;
 display:inline-block;
-margin-top:25px;
-padding:14px 30px;
-background:#60a5fa;
-border-radius:12px;
+padding:14px 35px;
+border-radius:30px;
+background:linear-gradient(135deg,#3b82f6,#8b5cf6);
 color:white;
+font-weight:600;
 text-decoration:none;
-font-weight:bold;
+transition:.3s;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
+.btn:hover{
+transform:translateY(-3px) scale(1.05);
+}
+
+/* SECTION */
 .section{
-padding:70px 40px;
+padding:80px 50px;
 }
 
 .section-title{
 text-align:center;
 font-size:40px;
-margin-bottom:40px;
+margin-bottom:50px;
 }
 
+/* CARDS */
 .features{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
 }
 
 .card{
-background:#1e293b;
-padding:25px;
+background:rgba(255,255,255,0.05);
 border-radius:20px;
-transition:.3s;
+padding:25px;
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.1);
+transition:.4s;
 }
 
 .card:hover{
-transform:translateY(-8px);
+transform:translateY(-10px) scale(1.03);
+background:rgba(255,255,255,0.08);
 }
 
 .card h3{
-margin-bottom:10px;
 color:#60a5fa;
+margin-bottom:10px;
 }
 
+/* STATS */
 .stats{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+gap:25px;
 }
 
 .stat{
-background:#1e293b;
-padding:25px;
+background:rgba(255,255,255,0.05);
+padding:30px;
 text-align:center;
 border-radius:20px;
+backdrop-filter:blur(10px);
 }
 
 .stat h2{
-font-size:40px;
+font-size:42px;
 color:#60a5fa;
 }
 
+/* ABOUT */
 .about{
-max-width:1000px;
+max-width:900px;
 margin:auto;
 text-align:center;
 line-height:1.8;
-font-size:18px;
+opacity:0.85;
 }
 
+/* FOOTER */
 footer{
-background:#111827;
+margin-top:60px;
 padding:30px;
 text-align:center;
-margin-top:50px;
+background:rgba(255,255,255,0.05);
+}
+
+/* ANIMATION */
+.fade{
+opacity:0;
+transform:translateY(30px);
+transition:1s;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
 }
 </style>
 </head>
+
 <body>
 
 <nav>
 <div class="logo">Nexora Word</div>
-
 <div class="menu">
 <a href="#">Home</a>
 <a href="#">Word</a>
 <a href="#">Excel</a>
-<a href="#">PPT</a>
-<a href="#">Notes</a>
-<a href="#">Math</a>
 <a href="#">AI</a>
 <a href="#">Profile</a>
 </div>
 </nav>
 
-<section class="hero">
-<h1>Welcome to Nexora Word</h1>
-<p>
-Create documents, spreadsheets, presentations, notes and AI-powered content in one powerful workspace.
-</p>
-
-<a href="#" class="btn">Get Started</a>
+<section class="hero fade">
+<h1>Next Gen Productivity</h1>
+<p>All your documents, AI tools, and work — in one powerful platform.</p>
+<a href="#" class="btn">Start Now 🚀</a>
 </section>
 
-<section class="section">
+<section class="section fade">
 <h2 class="section-title">Features</h2>
 
 <div class="features">
-
-<div class="card">
-<h3>📝 Word Editor</h3>
-<p>Create and edit professional documents with advanced formatting.</p>
-</div>
-
-<div class="card">
-<h3>📊 Excel Sheets</h3>
-<p>Powerful spreadsheets, formulas, charts and data tools.</p>
-</div>
-
-<div class="card">
-<h3>📽️ Presentation</h3>
-<p>Create beautiful slides with animations and templates.</p>
-</div>
-
-<div class="card">
-<h3>🤖 Nexora AI</h3>
-<p>AI writing, summarization, translation and productivity tools.</p>
-</div>
-
-<div class="card">
-<h3>📒 Smart Notes</h3>
-<p>Quick notes, reminders and cloud synchronization.</p>
-</div>
-
-<div class="card">
-<h3>🧮 Calculator</h3>
-<p>Scientific calculator and formula solver.</p>
-</div>
-
-<div class="card">
-<h3>☁ Cloud Sync</h3>
-<p>Save and access files from anywhere.</p>
-</div>
-
-<div class="card">
-<h3>👥 Collaboration</h3>
-<p>Work together with teams in real time.</p>
-</div>
-
+<div class="card"><h3>📝 Word</h3><p>Advanced document editor</p></div>
+<div class="card"><h3>📊 Excel</h3><p>Smart data & charts</p></div>
+<div class="card"><h3>📽️ PPT</h3><p>Modern presentations</p></div>
+<div class="card"><h3>🤖 AI</h3><p>Write & automate work</p></div>
+<div class="card"><h3>📒 Notes</h3><p>Save ideas instantly</p></div>
+<div class="card"><h3>☁ Cloud</h3><p>Access anywhere</p></div>
 </div>
 </section>
 
-<section class="section">
-<h2 class="section-title">Statistics</h2>
+<section class="section fade">
+<h2 class="section-title">Stats</h2>
 
 <div class="stats">
-
-<div class="stat">
-<h2>24/7</h2>
-<p>AI Support</p>
-</div>
-
-<div class="stat">
-<h2>100%</h2>
-<p>Secure Login</p>
-</div>
-
-<div class="stat">
-<h2>Cloud</h2>
-<p>Storage</p>
-</div>
-
-<div class="stat">
-<h2>All-In-One</h2>
-<p>Workspace</p>
-</div>
-
+<div class="stat"><h2>24/7</h2><p>AI Support</p></div>
+<div class="stat"><h2>100%</h2><p>Secure</p></div>
+<div class="stat"><h2>Cloud</h2><p>Storage</p></div>
+<div class="stat"><h2>All-in-One</h2><p>Platform</p></div>
 </div>
 </section>
 
-<section class="section">
-<h2 class="section-title">About Nexora Word</h2>
-
+<section class="section fade">
+<h2 class="section-title">About</h2>
 <div class="about">
-Nexora Word is a complete productivity suite that combines document editing,
-spreadsheet management, presentations, notes, calculator tools, AI assistance,
-organization features and cloud technology into one modern platform.
-Designed for students, professionals and organizations.
+Nexora Word is a futuristic workspace combining AI, documents, spreadsheets and cloud tools into one seamless experience.
 </div>
 </section>
 
 <footer>
 <h3>Nexora Word</h3>
-<p>AI-Powered Productivity Platform</p>
-<p>© 2026 Nexora Word. All Rights Reserved.</p>
+<p>Built for Future 🚀</p>
 </footer>
 
 <script>
-console.log("Nexora Word Loaded Successfully");
+// SCROLL ANIMATION
+const fades = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+fades.forEach(el => {
+const top = el.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+el.classList.add('show');
+}
+});
+});
 </script>
 
 </body>
